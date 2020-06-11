@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C164DAB12491F544001D9B63 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164DAB02491F544001D9B63 /* MainView.swift */; };
+		C19BEF5A24909CF8004DFD4B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19BEF5924909CF8004DFD4B /* SettingView.swift */; };
 		C1ED8A312490636500487BAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED8A302490636500487BAD /* AppDelegate.swift */; };
 		C1ED8A332490636500487BAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED8A322490636500487BAD /* SceneDelegate.swift */; };
 		C1ED8A352490636500487BAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED8A342490636500487BAD /* ContentView.swift */; };
 		C1ED8A372490636700487BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1ED8A362490636700487BAD /* Assets.xcassets */; };
 		C1ED8A3A2490636700487BAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1ED8A392490636700487BAD /* Preview Assets.xcassets */; };
 		C1ED8A3D2490636700487BAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1ED8A3B2490636700487BAD /* LaunchScreen.storyboard */; };
+		C1ED8A47249080C900487BAD /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED8A46249080C900487BAD /* ContentView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C164DAB02491F544001D9B63 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C19BEF5924909CF8004DFD4B /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C1ED8A2D2490636500487BAD /* MedicallYang0610.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicallYang0610.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1ED8A302490636500487BAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1ED8A322490636500487BAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		C1ED8A392490636700487BAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C1ED8A3C2490636700487BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1ED8A3E2490636700487BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1ED8A46249080C900487BAD /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				C1ED8A302490636500487BAD /* AppDelegate.swift */,
 				C1ED8A322490636500487BAD /* SceneDelegate.swift */,
 				C1ED8A342490636500487BAD /* ContentView.swift */,
+				C164DAB02491F544001D9B63 /* MainView.swift */,
+				C19BEF5924909CF8004DFD4B /* SettingView.swift */,
+				C1ED8A46249080C900487BAD /* ContentView2.swift */,
 				C1ED8A362490636700487BAD /* Assets.xcassets */,
 				C1ED8A3B2490636700487BAD /* LaunchScreen.storyboard */,
 				C1ED8A3E2490636700487BAD /* Info.plist */,
@@ -147,6 +156,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1ED8A312490636500487BAD /* AppDelegate.swift in Sources */,
+				C164DAB12491F544001D9B63 /* MainView.swift in Sources */,
+				C19BEF5A24909CF8004DFD4B /* SettingView.swift in Sources */,
+				C1ED8A47249080C900487BAD /* ContentView2.swift in Sources */,
 				C1ED8A332490636500487BAD /* SceneDelegate.swift in Sources */,
 				C1ED8A352490636500487BAD /* ContentView.swift in Sources */,
 			);
