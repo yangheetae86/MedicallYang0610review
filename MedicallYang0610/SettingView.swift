@@ -9,20 +9,19 @@
 import SwiftUI
 
 struct SettingView: View {
-    
     @Binding var goSetting : Bool
     
     var body: some View {
         
         NavigationView {
             GeometryReader {g in
-                VStack {
+                VStack (spacing:0){
                     ZStack {
                         Text("설정")
                             .background(Color("배경0").frame(width: g.size.width, height:g.size.height).edgesIgnoringSafeArea(.all))
                         HStack {
                             Button(action: {
-                                self.goSetting = false
+                                self.goSetting=false
                             }) {
                                 Spacer()
                                 Text("취소")
@@ -32,19 +31,31 @@ struct SettingView: View {
                     }.padding()
                         .foregroundColor(.white)
                         .font(.headline)
-
-                    List{
-                        Text("약관 및 정책")
-                        Text("회사 소개")
-                        Text("자가 진단")
-                        Text("버전 정보")
+                    
+                    List {
+                        NavigationLink(destination:
+                            SettingView2()
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)) {
+                                    ListCell(title: "약관 및 정책")
+                        }
+                        NavigationLink(destination:
+                            IntroCompany()
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)) {
+                                    ListCell(title: "회사 소개")
+                        }
+//                        ListCell(title: "자가 진단")
                     }
-                    .font(.body)
+                    
                 }
-            }
+            }.navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }
+
+
 
 //struct SettingView_Previews: PreviewProvider {
 //    static var previews: some View {

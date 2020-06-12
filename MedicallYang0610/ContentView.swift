@@ -10,13 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var goSetting = false
+    @State var goSetting : Bool = false // @Stat 프로퍼티 래퍼는 스트럭트문과 바디문 사이에 넣는다
     var body: some View {
         VStack {
-            if goSetting { // ==true
+            if goSetting {
                 SettingView(goSetting: $goSetting)
-                    .transition(.scale)
-            } else { // else if goSetting==false
+            } else {
                 MainView(goSetting: $goSetting)
             }
         }
@@ -26,9 +25,15 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+//        Group {
+            ContentView()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+//            ContentView()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+//        }
     }
 }
+
 
 
 /*

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @Binding var goSetting : Bool
+    @Binding var goSetting: Bool
     @State var index = 1
     @State var offset : CGFloat = UIScreen.main.bounds.width
     
@@ -18,19 +18,21 @@ struct MainView: View {
     
     var body: some View {
         VStack(spacing: 0) {//spacing: 0을 줌으로 간격이 없어진다
+            
             HStack {
                 Text("메디콜 공중전화")
-                    .padding()
                 Spacer()
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "trash")
+                }
                 Button(action: {
                     self.goSetting = true
                 }) {
                     Image(systemName: "gear")
-                        .padding()
                 }
-                .padding()
-            }
-            .padding()
+            }.padding()
             .foregroundColor(.white)
             .background(Color("배경0").edgesIgnoringSafeArea(.all))
             
@@ -64,7 +66,6 @@ struct MainView: View {
             }
         }
         .animation(.default)
-        .edgesIgnoringSafeArea(.all)
     }
     
     func changeView(left: Bool){
@@ -84,8 +85,6 @@ struct MainView: View {
 }
 
 struct AppBar : View {
-    
-    var isDestination = false
     
     @Binding var index : Int
     @Binding var offset : CGFloat
@@ -157,6 +156,21 @@ struct Scnd : View {
                 .font(.callout)
                 .foregroundColor(.gray)
             }
+            HStack {
+                     Image(systemName: "phone.fill")
+                         .foregroundColor(.blue)
+                     Text("테스트")
+                         .font(.headline)
+                     Text("영상통화")
+                         .font(.body)
+                     Spacer()
+                     VStack(alignment: .trailing) {
+                         Text("6월 11일 오전 11:59")
+                         Text("00:00:34")
+                     }
+                     .font(.callout)
+                     .foregroundColor(.gray)
+                 }
         }
     }
 }
