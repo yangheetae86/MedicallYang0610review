@@ -45,7 +45,12 @@ struct SettingView: View {
                                 .navigationBarHidden(true)) {
                                     ListCell(title: "회사 소개")
                         }
-//                        ListCell(title: "자가 진단")
+                        NavigationLink(destination:
+                            SelfCheck()
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)) {
+                                    ListCell(title: "자가 진단")
+                        }
                     }
                     
                 }
