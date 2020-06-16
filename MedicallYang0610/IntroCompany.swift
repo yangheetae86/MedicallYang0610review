@@ -18,8 +18,7 @@ struct IntroCompany: View {
                 VStack(spacing: 0) {
                     ZStack {
                         Text("회사 소개")
-                            .background(Color("배경0").frame(width: g.size.width, height: g.size.height/6).edgesIgnoringSafeArea(.all))
-                        
+                            .background(Color("배경0").frame(width: g.size.width, height: g.size.height).edgesIgnoringSafeArea(.all))
                         HStack {
                             Button(action: {
                                 self.presentation.wrappedValue.dismiss()//내 자신이 사라진다는 의미
@@ -28,11 +27,11 @@ struct IntroCompany: View {
                             }
                             Spacer()
                         }
-                        
                     }.padding()
-                    .foregroundColor(.white)
-                    .font(.headline)
+                        .foregroundColor(.white)
+                        .font(.headline)
                     ZStack {
+                        Color(.white)
                         VStack {
                             Spacer()
                             HStack {
@@ -40,12 +39,15 @@ struct IntroCompany: View {
                                 Spacer()
                             }
                         }
-                    
                         VStack {
                             Image("imgLogo")
+                                .padding(.top, 70)
                             Image("imgTypo")
+                                .padding()
                             Image("imgGraph")
-                        }
+                                .padding(.top, 35.0)
+                            Spacer()
+                        }.padding()
                     }
                 }
             }

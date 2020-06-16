@@ -29,13 +29,32 @@ struct SettingView2: View {
                             Spacer()
                         }
                     }.padding()
-                    .foregroundColor(.white)
-                    .font(.headline)
-
+                        .foregroundColor(.white)
+                        .font(.headline)
+                    
                     List{
-                        ListCell(title: "이용 약관")
-                        ListCell(title: "개인정보 취급방침")
-                        ListCell(title: "오픈소스 저작권")
+                        
+                        NavigationLink(destination:
+                            TopOfWebViews(urlOrFile: false, url_top: "https://smartmobile.gbphone.co.kr:1004/hospitalterms/mobileagreement", title_top: "이용 약관")
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)) {
+                                    ListCell(title: "이용 약관")
+                        }
+                        NavigationLink(destination:
+                            TopOfWebViews(urlOrFile: false, url_top: "https://smartmobile.gbphone.co.kr:1004/hospitalterms/mobileprivateinfo_ios", title_top: "개인정보 취급방침")
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)) {
+                                    ListCell(title: "개인정보 취급방침")
+                        }
+                        NavigationLink(destination:
+                            GeometryReader {g in //수정하기
+                                TopOfWebViews(urlOrFile: true, url_top: "", title_top: "오픈소스 저작권")
+                                    .navigationBarTitle("")
+                                    .navigationBarHidden(true)
+                            }.frame(height: g.size.width).edgesIgnoringSafeArea(.all)) //수정하기
+                            {
+                                    ListCell(title: "오픈소스 저작권")
+                        }
                     }
                 }
             }

@@ -13,7 +13,7 @@ struct SelfCheck: View {
     @State private var onOff0 = false
     @State private var onOff1 = false
     @State private var onOff2 = false
-
+    
     
     var body: some View {
         
@@ -63,29 +63,41 @@ struct SelfCheck: View {
                                         Spacer()
                                         Toggle("", isOn: self.$onOff2)
                                     }
-                                    }
-                                    .frame(height: 50)
-                                    .font(.subheadline)
+                                }
+                                .padding(.leading)
+                                .frame(height: 50)
+                                .font(.subheadline)
                         }
                         Section(header: Text("통화 자가진단")
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                        .padding(.top)
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .padding(.top)
                             .frame(height: 50)){
                                 Group {
                                     HStack {
                                         Text("푸쉬 테스트")
                                         Spacer()
-                                        Text("시작")
-                                            .frame(width: 70.0, height: 32.0).background(Color("배경0")).cornerRadius(7)
+                                        Button(action: {
+                                        }){
+                                            Text("시작")
+                                                .foregroundColor(.white).frame(width: 70.0, height:32.0)
+                                                .background(Color("배경0")).cornerRadius(7)
+                                        }
+                                        
                                     }
                                     HStack {
                                         Text("통화서버 연결 테스트")
                                         Spacer()
-                                        Text("시작")
-                                            .frame(width: 70.0, height: 32.0).background(Color("배경0")).cornerRadius(7)
+                                        Button(action: {
+                                        }){
+                                            Text("시작")
+                                                .foregroundColor(.white).frame(width: 70.0, height:32.0)
+                                                .background(Color("배경0")).cornerRadius(7)
+                                        }
                                     }
-                                }
+                                }.padding(.leading)
+                                .frame(height: 50)
+                                .font(.subheadline)
                         }
                     }
                 }

@@ -1,0 +1,176 @@
+//
+//  TopOfWebViews.swift
+//  MedicallYang0610
+//
+//  Created by HEE TAE YANG on 2020/06/16.
+//  Copyright © 2020 yht. All rights reserved.
+//
+
+import SwiftUI
+import Foundation
+import WebKit
+
+
+struct TopOfWebViews: View {
+    @Environment(\.presentationMode) var presentation
+    var urlOrFile : Bool//true 일때 file, false 일때 url
+    
+    var url_top : String
+    var title_top : String
+    
+    var body: some View {
+        
+        NavigationView {
+            GeometryReader {g in
+                VStack(spacing: 0) {
+                    ZStack {
+                        Text(self.title_top)
+                            .background(Color("배경0").frame(width: g.size.width, height:g.size.height).edgesIgnoringSafeArea(.all))
+                        
+                        HStack {
+                            Button(action: {
+                                self.presentation.wrappedValue.dismiss()//내 자신이 사라진다는 의미
+                            }){
+                                Image(systemName: "chevron.left")
+                            }
+                            Spacer()
+                        }
+                    }.padding()
+                        .foregroundColor(.white)
+                        .font(.headline)
+                    if self.urlOrFile {
+                        WkwebView()
+                    } else {
+                        WebViews(url_webview: self.url_top)
+                    }
+                }
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
+    }
+}
+struct WebViews: UIViewRepresentable {
+    
+    var url_webview: String
+    
+    func makeUIView(context: Context) -> WKWebView {
+        guard let url = URL(string: self.url_webview) else {
+            return WKWebView()
+        }
+        
+        let request = URLRequest(url: url)
+        let wkWebView = WKWebView()
+        wkWebView.load(request)
+        return wkWebView
+    }
+    
+    
+    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebViews>) {
+        
+    }
+}
+struct WkwebView: UIViewRepresentable {
+    func makeUIView(context: Context) -> WKWebView {
+        let wconfiguration = WKWebViewConfiguration()
+        //-- false = Play video with native device player ; true =  inline
+        wconfiguration.allowsInlineMediaPlayback = false
+        
+        //-- Does not require user inter action for .ie sound auto playback
+        wconfiguration.mediaTypesRequiringUserActionForPlayback = []
+        
+        let webView =  WKWebView(frame: .zero, configuration: wconfiguration)
+        
+        let theFileName = ("GrinbiSmart_License" as NSString).lastPathComponent
+        let htmlPath = Bundle.main.path(forResource: theFileName, ofType: "html")
+        
+        let folderPath = Bundle.main.bundlePath
+        
+        let baseUrl = URL(fileURLWithPath: folderPath, isDirectory: true)
+        
+        do {
+            
+            let htmlString = try NSString(contentsOfFile: htmlPath!, encoding: String.Encoding.utf8.rawValue)
+            
+            webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
+            
+        } catch {
+            // catch error
+        }//webView.navigationDelegate = self
+        
+        webView.scrollView.bounces = true // 오버 스크롤
+        webView.scrollView.isScrollEnabled = true // 스크롤 위아래
+        webView.isOpaque = false
+        webView.isHidden = false
+        return webView
+    }
+    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WkwebView>) {
+        
+    }
+}
+
+struct TopOfWebViews_Previews: PreviewProvider {
+    static var previews: some View {
+        TopOfWebViews(urlOrFile: false, url_top: "https://www.google.com", title_top: "Google")
+    }
+}
+
+//
+//  GSDefines.h
+//  GrinbiSmart
+//
+//  Created by one4u on 2015. 11. 24..
+//
+//
+
+//#ifndef GSDefines_h
+//#define GSDefines_h
+//
+//
+////        GSColor
+//#define GSColor_White                        THColor(255, 255, 255, 1)
+//#define GSColor_White_80                    THColor(255, 255, 255, 0.8)
+//#define GSColor_BGGray                        THColor(238, 238, 238, 1)
+//#define GSColor_MainBlue                    THColor(56, 126, 212, 1)
+//#define GSColor_MainBlue_80                    THColor(56, 126, 212, 0.8)
+//#define GSColor_FontGray                    THColor(35, 31, 32, 0.55)
+//#define GSColor_FontBlack                    THColor(65, 64, 66, 1)
+//#define GSColor_FontRed                        THColor(229, 57, 53, 1)
+//#define GSColor_BtnDelete                    THColor(255, 23, 68, 1)
+//#define GSColor_BtnDeleteOn                    THColor(255, 23, 68, 0.8)
+//#define GSColor_Line                        THColor(167, 169, 172, 1)
+//#define GSColor_Tab_UnderLine                THColor(255, 209, 128, 1)
+//#define GSColor_CircleRed                    THColor(255, 82, 82, 1)
+//#define GSColor_Radio_BtnBlue                THColor(179, 229, 252, 1)
+//#define GSColor_Conn_Approve                THColor(141, 210, 73, 1)
+//#define GSColor_Conn_ApproveOn                THColor(141, 210, 73, 0.85)
+//#define GSColor_Conn_OptionBlue                THColor(178, 206, 219, 0.85)
+//#define GSColor_Conn_OptionBlueOn            THColor(178, 206, 219, 1)
+//#define GSColor_Conn_OptionBlueOn_50        THColor(178, 206, 219, 0.5)
+//#define GSColor_Conn_OptionRed                THColor(229, 57, 53, 0.85)
+//#define GSColor_Conn_OptionRedOn            THColor(229, 57, 53, 1)
+//#define GSColor_Conn_OptionRedOn_50            THColor(229, 57, 53, 0.5)
+//#define GSColor_Conn_Timer                    THColor(65, 64, 66, 0.8)
+//
+//
+////
+//#define GBColor_Red                            THColor(255, 82, 82, 1.0f)
+//#define GBColor_Btn_Gray_Light                THColor(167, 169, 172, 1.0f)
+//#define GBColor_Line                        THColor(167, 169, 172, 1.0f)
+//#define GBColor_Main_BG                     THColor(248, 248, 248, 1.0f)
+//
+////
+//#define        URL_Company                    @"http://www.ofu.co.kr"
+//
+//
+////
+//#define    GrinbiSmart_Terms_URL_Path            @"https://smartmobile.gbphone.co.kr:1004/hospitalterms/mobileagreement"
+//#define    GrinbiSmart_Policies_URL_Path        @"https://smartmobile.gbphone.co.kr:1004/hospitalterms/mobileprivateinfo_ios"
+//
+//#define GrinbiSmart_Terms_File_Path            [[NSBundle mainBundle] pathForResource:@"GrinbiSmart_Terms" ofType:@"html"]
+//#define GrinbiSmart_Policies_File_Path        [[NSBundle mainBundle] pathForResource:@"GrinbiSmart_Policies" ofType:@"html"]
+//#define GrinbiSmart_License_File_Path        [[NSBundle mainBundle] pathForResource:@"GrinbiSmart_License" ofType:@"html"]
+//
+//
+//
+//#endif /* GSDefines_h */

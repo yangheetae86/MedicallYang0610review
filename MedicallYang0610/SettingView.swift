@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct SettingView: View {
+    @State var showAlert = false
     @Binding var goSetting : Bool
     
     var body: some View {
@@ -51,11 +52,19 @@ struct SettingView: View {
                                 .navigationBarHidden(true)) {
                                     ListCell(title: "자가 진단")
                         }
+                        Button(action: {
+                            self.showAlert=true
+                        }){
+                            ListCell(title: "버전 정보")
+                        }
+                        .alert(isPresented: self.$showAlert){
+                            Alert(title: Text("버전정보"), message: Text("최신 버전입니다"))
+                        }
                     }
                     
                 }
             }.navigationBarTitle("")
-            .navigationBarHidden(true)
+                .navigationBarHidden(true)
         }
     }
 }
