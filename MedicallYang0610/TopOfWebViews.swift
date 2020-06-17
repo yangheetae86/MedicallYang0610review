@@ -8,13 +8,13 @@
 
 import SwiftUI
 import Foundation
-import WebKit
+import WebKit // 웹뷰를 불러와 쓰는 기능을 사용하기 위해서 임포트를 해주어야 한다.
 
 
 struct TopOfWebViews: View {
-    @Environment(\.presentationMode) var presentation
-    var urlOrFile : Bool//true 일때 file, false 일때 url
+    @Environment(\.presentationMode) var presentation //스스로 상태 변화를 감지는 @Environment 라는 프로퍼티래퍼를 사용하였다
     
+    var urlOrFile : Bool//true 일때 file, false 일때 url
     var url_top : String
     var title_top : String
     
@@ -38,10 +38,14 @@ struct TopOfWebViews: View {
                     }.padding()
                         .foregroundColor(.white)
                         .font(.headline)
+                     // 이용약관이나 회사정책들은 수시로 변할수가 있는것 때문에 업데이트가 필요할수 도 있다. 그런데 만약 웹싸이트에서만 정책을 불러온다고하면 그 불러오는 시간이 미세하게나마 걸릴수가있고 회사서버의 문제에따라서는 로딩이 안될수도 있다. 또 html파일만으로 로드한다고 했을 때는 업데이트내역을 수정할수가없다. 때문에 웹url에서 정책을 불러오기전에 html파일을 먼저 보여주는 if문을 작성한다.
                     if self.urlOrFile {
-                        WkwebView()
+                        ZStack {
+                            Color(.white)
+                            WkwebView() // html파일을 불러오는 구조체
+                        }
                     } else {
-                        WebViews(url_webview: self.url_top)
+                        WebViews(url_webview: self.url_top) // 웹url을 불러오는 구조체
                     }
                 }
             }
@@ -50,8 +54,8 @@ struct TopOfWebViews: View {
         }
     }
 }
-struct WebViews: UIViewRepresentable {
-    
+
+struct WebViews: UIViewRepresentable { //웹url을 불러오는 구조체
     var url_webview: String
     
     func makeUIView(context: Context) -> WKWebView {
@@ -64,13 +68,12 @@ struct WebViews: UIViewRepresentable {
         wkWebView.load(request)
         return wkWebView
     }
-    
-    
     func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebViews>) {
         
     }
 }
-struct WkwebView: UIViewRepresentable {
+
+struct WkwebView: UIViewRepresentable { //html형식의 파일을 불러오는 구조체
     func makeUIView(context: Context) -> WKWebView {
         let wconfiguration = WKWebViewConfiguration()
         //-- false = Play video with native device player ; true =  inline
@@ -111,7 +114,9 @@ struct WkwebView: UIViewRepresentable {
 
 struct TopOfWebViews_Previews: PreviewProvider {
     static var previews: some View {
-        TopOfWebViews(urlOrFile: false, url_top: "https://www.google.com", title_top: "Google")
+//        TopOfWebViews(urlOrFile: false, url_top: "https://www.google.com", title_top: "Google")
+        TopOfWebViews(urlOrFile: true, url_top: "", title_top: "오픈소스 저작권")
+        
     }
 }
 

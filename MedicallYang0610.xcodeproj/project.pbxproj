@@ -342,9 +342,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MedicallYang0610/Preview Content\"";
-				DEVELOPMENT_TEAM = 828N6YH57L;
+				DEVELOPMENT_TEAM = QWMVVJ768Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MedicallYang0610/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,9 +363,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MedicallYang0610/Preview Content\"";
-				DEVELOPMENT_TEAM = 828N6YH57L;
+				DEVELOPMENT_TEAM = QWMVVJ768Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MedicallYang0610/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

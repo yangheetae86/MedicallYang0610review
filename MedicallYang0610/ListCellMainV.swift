@@ -6,6 +6,7 @@
 //  Copyright © 2020 yht. All rights reserved.
 //
 
+//코드의 반복을 줄이기 위하여 작성한 MainView의 공통사항
 import SwiftUI
 
 struct ListCellMainV: View {
@@ -28,6 +29,7 @@ struct ListCellMainV: View {
                 Text(title)
                     .padding(.leading)
                     .frame(minWidth: 0, maxWidth: 275, minHeight: 30, maxHeight: 30, alignment: .leading)
+                    .foregroundColor(.black)
                 Text(content)
                     .padding(.leading)
                     .frame(minWidth: 0, maxWidth: 275, minHeight: 30, maxHeight: 45, alignment: .leading)
@@ -36,7 +38,7 @@ struct ListCellMainV: View {
             .font(.footnote)
             .background(Color.white)
         }
-        .border(Color(.gray))
+        .border(Color(.gray).opacity(0.5))
     }
 }
 

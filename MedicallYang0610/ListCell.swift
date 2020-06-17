@@ -23,6 +23,6 @@ struct ListCell:View {
 
 struct ListCell_Previews: PreviewProvider {
     static var previews: some View {
-        ListCell(title: "ss")
+        ListCell(title: "높이60")
     }
 }
