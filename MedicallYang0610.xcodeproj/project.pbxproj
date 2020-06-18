@@ -345,7 +345,7 @@
 				DEVELOPMENT_TEAM = 828N6YH57L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MedicallYang0610/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,7 +366,7 @@
 				DEVELOPMENT_TEAM = 828N6YH57L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MedicallYang0610/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
