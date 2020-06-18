@@ -14,12 +14,19 @@ struct ContentView: View {
     
     @State var goSetting : Bool = false // @State 프로퍼티 래퍼는 스트럭트문과 바디문 사이에 넣는다
     var body: some View {
-        VStack {
+        ZStack {
+            
+            MainView(goSetting: $goSetting).zIndex(0)
             if goSetting { //if 문을 사용하여 설정버튼을 눌렀을 때 SettingView 가 보여지고, 그렇지않을때는 MainView 가 보여진다.
                 SettingView(goSetting: $goSetting)
-            } else {
-                MainView(goSetting: $goSetting)
+                    .transition(AnyTransition.move(edge: .bottom))
+//                    .animation(Animation.easeInOut(duration: 0.4))
+                    .animation(Animation.default)
+                .zIndex(1)
+                
+                
             }
+            
         }
     }
 }

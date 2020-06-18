@@ -33,8 +33,8 @@ struct SettingView: View {
                             Spacer()//간격조절
                         }
                     }.padding()
-                        .foregroundColor(.white)//타이틀의 색
-                        .font(.headline)//타이틀의 폰트
+                    .foregroundColor(.white)//타이틀의 색
+                    .font(.headline)//타이틀의 폰트
                     //리스트를 만들고 리스트에 들어갈 항목을 만들어 선택하면 다음뷰로 전환이 되도록 하였다.
                     List {
                         NavigationLink(destination:
@@ -66,8 +66,9 @@ struct SettingView: View {
                     }
                     
                 }
-            }.navigationBarTitle("")
-                .navigationBarHidden(true)
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }

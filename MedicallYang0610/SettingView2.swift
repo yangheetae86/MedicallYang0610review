@@ -47,7 +47,6 @@ struct SettingView2: View {
                                     ListCell(title: "개인정보 취급방침")
                         }
                         NavigationLink(destination:
-                            
                             TopOfWebViews(urlOrFile: true, url_top: "", title_top: "오픈소스 저작권")
                                 .navigationBarTitle("")
                                 .navigationBarHidden(true)){

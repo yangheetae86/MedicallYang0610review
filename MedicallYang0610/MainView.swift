@@ -70,7 +70,7 @@ struct MainView: View {
                                     }
                                 }))
                 }
-                .animation(.default)//애니메이션효과
+//                .animation(.default)//애니메이션효과
             }
         }
         
